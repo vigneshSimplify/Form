@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+
+.greenbtn {
+    background-color: rgb(46, 166, 46);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+
+.redbtn {
+    background-color: #F05941;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+
+.bluebtn {
+    background-color: #6161ef;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+
+.error {
+    padding: 1rem;
+    background-color: rgba(232, 103, 103, 0.633);
+    color: white;
+    border-radius: 5px;
+    margin: 2rem 1rem;
+    width: 80%;
+}
+
+.success {
+    padding: 1rem;
+    background-color: rgba(40, 161, 56, 0.633);
+    color: white;
+    border-radius: 5px;
+    margin: 2rem 1rem;
+    width: 80%;
+}

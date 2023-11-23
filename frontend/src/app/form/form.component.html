@@ -1,0 +1,60 @@
+<div class="loading" *ngIf="isLoading">
+    <p>Loading...</p>
+</div>
+<div class="form" *ngIf="!isLoading">
+    <form class="form-col col-4" (submit)="onSubmit()" *ngIf="reset">
+        <h4 class="m-3" *ngIf="reset">Create User</h4>
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="formData.name" />
+        <input type="number" placeholder="Age" name="age" [(ngModel)]="formData.age" />
+        <input type="text" placeholder="Phone" name="phone" [(ngModel)]="formData.phone" />
+        <div class=" d-flex">
+            <button class="greenbtn mx-3" *ngIf="reset" type="submit">Create</button>
+            <button class="redbtn mx-3" (click)="resetInput()" type="button">Reset</button>
+        </div>
+        <div class="error" *ngIf="error">{{error}}</div>
+        <div class="success" *ngIf="success">{{success}}</div>
+    </form>
+    <form class="form-col col-4" (submit)="editUser()" *ngIf="!reset">
+        <h4 class="m-3" *ngIf="!reset">Update User</h4>
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="formData.name" />
+        <input type="number" placeholder="Age" name="age" [(ngModel)]="formData.age" />
+        <input type="text" placeholder="Phone" name="phone" [(ngModel)]="formData.phone" />
+        <div class=" d-flex">
+            <button class="greenbtn mx-3" *ngIf="!reset" type="submit">Update</button>
+            <button class="redbtn mx-3" (click)="resetInput()" type="button">Reset</button>
+        </div>
+        <div class="error" *ngIf="error">{{error}}</div>
+        <div class="success" *ngIf="success">{{success}}</div>
+    </form>
+    <div class="form-col col-8">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4 class="m-3">Users List</h4>
+            <button class="bluebtn" (click)="ngOnInit()">Refresh List</button>
+        </div>
+        <div class="table-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="users">
+                    <tr *ngFor="let e of users; index as i">
+                        <td>{{i + 1}}</td>
+                        <td>{{e.name}}</td>
+                        <td>{{e.age}}</td>
+                        <td>{{e.phone}}</td>
+                        <td><button class="greenbtn" (click)="getUser(e._id)">Edit</button></td>
+                        <td><button class="redbtn" (click)="deleteUser(e._id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5 *ngIf="!users" class="my-5 text-center">No users found!</h5>
+        </div>
+    </div>
+</div>
